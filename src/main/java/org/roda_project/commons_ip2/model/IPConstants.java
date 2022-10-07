@@ -46,8 +46,10 @@ public final class IPConstants {
   public static final String DESCRIPTIVE_FOLDER = METADATA_FOLDER + DESCRIPTIVE + METS_PATH_SEPARATOR;
   public static final String PRESERVATION = "preservation";
   public static final String PRESERVATION_FOLDER = METADATA_FOLDER + PRESERVATION + METS_PATH_SEPARATOR;
-  public static final String OTHER_WITH_FIRST_LETTER_CAPITAL = "Other";
   public static final String OTHER = "other";
+  public static final String RIGHTS = "rights";
+  public static final String RIGHTS_FOLDER = METADATA_FOLDER + OTHER + METS_PATH_SEPARATOR;
+  public static final String OTHER_WITH_FIRST_LETTER_CAPITAL = "Other";
   public static final String OTHER_FOLDER = METADATA_FOLDER + OTHER + METS_PATH_SEPARATOR;
   public static final String REPRESENTATIONS_WITH_FIRST_LETTER_CAPITAL = "Representations";
   public static final String REPRESENTATIONS = "representations";

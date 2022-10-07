@@ -245,7 +245,7 @@ public final class SipCreatorUtils {
         metadataTypeEnum = new MetadataType(metadataType);
       }
 
-      // Assume descriptive -> preservation -> other
+      // Assume descriptive -> rights -> preservation -> other
       // order for simplicity
       switch (index) {
         case 0:
@@ -258,6 +258,14 @@ public final class SipCreatorUtils {
           }
           break;
         case 1:
+          try {
+            sip.addRightsMetadata(new IPMetadata(
+                new IPFile(Paths.get(metadataFile))));
+          } catch (IPException e) {
+            e.printStackTrace();
+          }
+          break;
+        case 2:
           try {
             sip.addPreservationMetadata(new IPMetadata(
                 new IPFile(Paths.get(metadataFile))));

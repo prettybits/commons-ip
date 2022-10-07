@@ -30,6 +30,7 @@ public class IPRepresentation {
   private List<IPAgent> agents;
   private List<IPDescriptiveMetadata> descriptiveMetadata;
   private List<IPMetadata> preservationMetadata;
+  private List<IPMetadata> rightsMetadata;
   private List<IPMetadata> otherMetadata;
   private List<IPFileInterface> data;
   private List<IPFileInterface> schemas;
@@ -46,6 +47,7 @@ public class IPRepresentation {
     this.agents = new ArrayList<>();
     this.descriptiveMetadata = new ArrayList<>();
     this.preservationMetadata = new ArrayList<>();
+    this.rightsMetadata = new ArrayList<>();
     this.otherMetadata = new ArrayList<>();
     this.data = new ArrayList<>();
     this.schemas = new ArrayList<>();
@@ -146,8 +148,17 @@ public class IPRepresentation {
     return preservationMetadata;
   }
 
+  public List<IPMetadata> getRightsMetadata() {
+    return rightsMetadata;
+  }
+
   public IPRepresentation addPreservationMetadata(IPMetadata metadata) {
     preservationMetadata.add(metadata);
+    return this;
+  }
+
+  public IPRepresentation addRightsMetadata(IPMetadata metadata) {
+    rightsMetadata.add(metadata);
     return this;
   }
 

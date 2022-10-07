@@ -100,6 +100,7 @@ public class EARKSIP extends SIP {
           EARKUtils.processDescriptiveMetadata(metsWrapper, sip, LOGGER, null, sip.getBasePath());
           EARKUtils.processOtherMetadata(metsWrapper, sip, LOGGER, null, sip.getBasePath());
           EARKUtils.processPreservationMetadata(metsWrapper, sip, LOGGER, null, sip.getBasePath());
+          EARKUtils.processRightsMetadata(metsWrapper, sip, LOGGER, null, sip.getBasePath());
           EARKUtils.processRepresentations(metsWrapper, sip, LOGGER);
           EARKUtils.processSchemasMetadata(metsWrapper, sip, sip.getBasePath());
           EARKUtils.processDocumentationMetadata(metsWrapper, sip, sip.getBasePath());
@@ -207,6 +208,7 @@ public class EARKSIP extends SIP {
 
       EARKUtils.addDescriptiveMetadataToZipAndMETS(zipEntries, mainMETSWrapper, getDescriptiveMetadata(), null);
       EARKUtils.addPreservationMetadataToZipAndMETS(zipEntries, mainMETSWrapper, getPreservationMetadata(), null);
+      EARKUtils.addRightsMetadataToZipAndMETS(zipEntries, mainMETSWrapper, getRightsMetadata(), null);
       EARKUtils.addOtherMetadataToZipAndMETS(zipEntries, mainMETSWrapper, getOtherMetadata(), null);
       EARKUtils.addRepresentationsToZipAndMETS(this, getRepresentations(), zipEntries, mainMETSWrapper, buildDir,
         sipType);

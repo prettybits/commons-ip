@@ -391,6 +391,26 @@ public final class EARKMETSUtils {
     return mdRef;
   }
 
+  public static MdRef addRightsMetadataToMETS(final MetsWrapper metsWrapper,
+      final IPMetadata rightsMetadata, final String rightsMetadataPath)
+      throws IPException, InterruptedException {
+    final MdSecType rightsMD = new MdSecType();
+    rightsMD.setSTATUS(rightsMetadata.getMetadataStatus().toString());
+    rightsMD.setID(Utils.generateRandomAndPrefixedUUID());
+    final MdRef mdRef = createMdRef(rightsMetadata.getId(), rightsMetadataPath);
+    mdRef.setMDTYPE(rightsMetadata.getMetadataType().asString());
+
+    // set mimetype, date creation, etc.
+    METSUtils.setFileBasicInformation(rightsMetadata.getMetadata().getPath(), mdRef);
+
+    // structural map info.
+    metsWrapper.getMetadataDiv().getADMID().add(rightsMD);
+
+    rightsMD.setMdRef(mdRef);
+    metsWrapper.getMets().getAmdSec().get(0).getRightsMD().add(rightsMD);
+    return mdRef;
+  }
+
   private static String escapeNCName(final String id) {
     return id.replaceAll("[:@$%&/+,;\\s]", "_");
   }

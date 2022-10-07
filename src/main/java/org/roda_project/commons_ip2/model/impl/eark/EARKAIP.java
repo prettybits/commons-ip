@@ -92,6 +92,8 @@ public class EARKAIP extends AIPWrap {
 
           EARKUtils.processPreservationMetadata(metsWrapper, aip, LOGGER, null, aip.getBasePath());
 
+          EARKUtils.processRightsMetadata(metsWrapper, aip, LOGGER, null, aip.getBasePath());
+
           EARKUtils.processRepresentations(metsWrapper, aip, LOGGER);
 
           EARKUtils.processSchemasMetadata(metsWrapper, aip, aip.getBasePath());
@@ -152,6 +154,8 @@ public class EARKAIP extends AIPWrap {
       EARKUtils.addDescriptiveMetadataToZipAndMETS(zipEntries, mainMETSWrapper, getDescriptiveMetadata(), null);
 
       EARKUtils.addPreservationMetadataToZipAndMETS(zipEntries, mainMETSWrapper, getPreservationMetadata(), null);
+
+      EARKUtils.addRightsMetadataToZipAndMETS(zipEntries, mainMETSWrapper, getRightsMetadata(), null);
 
       EARKUtils.addOtherMetadataToZipAndMETS(zipEntries, mainMETSWrapper, getOtherMetadata(), null);
 

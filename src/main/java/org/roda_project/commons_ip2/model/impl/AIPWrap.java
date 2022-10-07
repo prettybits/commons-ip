@@ -197,6 +197,11 @@ public class AIPWrap implements AIP {
   }
 
   @Override
+  public IP addRightsMetadata(final IPMetadata metadata) throws IPException {
+    return aip.addRightsMetadata(metadata);
+  }
+
+  @Override
   public IP addOtherMetadata(final IPMetadata metadata) throws IPException {
     return aip.addOtherMetadata(metadata);
   }
@@ -278,6 +283,11 @@ public class AIPWrap implements AIP {
   @Override
   public List<IPMetadata> getPreservationMetadata() {
     return aip.getPreservationMetadata();
+  }
+
+  @Override
+  public List<IPMetadata> getRightsMetadata() {
+    return aip.getRightsMetadata();
   }
 
   @Override
