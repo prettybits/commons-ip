@@ -187,11 +187,16 @@ public class CLICreator {
           return ExitCodes.EXIT_CODE_CREATE_INVALID_PATHS;
         }
 
+        String version = getClass().getPackage().getImplementationVersion();
+
+        if (version == null) {
+          version = "dev";
+        }
 
         try {
           final Path eark2SIP = SipCreatorUtils.createEARK2SIP(metadataFile, metadataType, metadataVersion,
             representationData, representationType, representationID, sipID, ancestors, documentation,
-            getClass().getPackage().getImplementationVersion(), path, submitterAgentName, submitterAgentID);
+            version, path, submitterAgentName, submitterAgentID);
           System.out.println("Created the sip in " + eark2SIP.normalize().toAbsolutePath());
         } catch (IPException | InterruptedException e) {
           CLIUtils.printErrors(System.out, "Can't create the sip");
